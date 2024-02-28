@@ -3,16 +3,16 @@ import { ref } from 'vue'
 import { todoObj } from '../type/todoObj.ts'
 
 const inputData = ref("");
-const emit = defineEmits<{ inputTodo: [todoObj]}>()
+const emit = defineEmits<{ inputTodo: [todoObj] }>()
 
 const inputTodo = () => {
 
-    emit('inputTodo', {
-      idx: 0,
-      title: inputData.value,
-      status: false
-    })
-    inputData.value = ""
+  emit('inputTodo', {
+    idx: 0,
+    title: inputData.value,
+    status: false
+  })
+  inputData.value = ""
 
 }
 
@@ -21,8 +21,7 @@ const inputTodo = () => {
 <template>
   <div class="d-flex justify-content-center align-items-center mb-4">
     <div class="form-outline flex-fill form-floating mb-3">
-      <input id="inputText" v-model="inputData" class="form-control" type="text" placeholder="name@example.com"
-        @keyup.enter="inputTodo">
+      <input id="inputText" v-model="inputData" class="form-control" type="text" @keyup.enter="inputTodo">
       <label for="inputText">
         신규작업....
       </label>

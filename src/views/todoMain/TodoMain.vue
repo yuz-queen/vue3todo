@@ -8,11 +8,18 @@ import MyModal from "../../components/Modal.vue";
 import { reactive, ref } from "vue";
 import { todoObj } from "../../type/todoObj";
 
+const STORAGE_KEY='todos';
+
+const todositems=(JSON.parse(localStorage.getItem(STORAGE_KEY)||'[]'));
+console.log((todositems.value));
+
 const titleRegex = /^$|.{101,}/;
 
 const viewData = reactive({
   todoList: [] as todoObj[],
 });
+
+
 
 // 초기 로딩 시 localStorage의 값을 todoDatas에 설정
 const initialTodos = localStorage.getItem("todos");
